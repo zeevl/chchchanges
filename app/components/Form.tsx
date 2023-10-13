@@ -43,7 +43,7 @@ export function Form({
         placeholder="Enter a public repo URL"
         initialValue={defaultRepoUrl}
         onChange={setRepoUrl}
-        type="url"
+        type="text"
         required
         fullWidth
       />
