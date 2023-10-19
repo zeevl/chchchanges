@@ -24,23 +24,15 @@ export const Footer = () => {
         </div>
         <div className="flex items-center gap-6 justify-between sm:justify-end w-full lg:w-fit">
           <Link
-            href="https://dev.to/tedspare/generate-changelogs-with-ai-2c0f-temp-slug-6382472?preview=4c013ec6e1a91076e60d156e8fb09323e70bf3ef5c305018e227115736c572093b6afd041357863bdd0f7f4e5f335d32f956bb566398737a5709d40b"
-            className="font-normal text-primary hover:text-indigo-500 whitespace-nowrap"
-            target="_blank"
-          >
-            Read the blog
-          </Link>
-          <Link
-            href="https://github.com/triggerdotdev/ai-changelog"
+            href="https://trigger.dev/showcase/projects/auto-changelog"
             target="_blank"
           >
             <Button
               variant="secondary"
               size="sm"
-              className="group text-dimmed font-normal space-x-1"
+              className="group text-dimmed font-normal whitespace-nowrap space-x-1"
             >
-              <GitHub className="w-4 h-4 mr-1" />
-              <span className="whitespace-nowrap">Explore the code</span>
+              Explore the code
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
             </Button>
           </Link>
