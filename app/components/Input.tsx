@@ -10,10 +10,10 @@ type Props = {
   required?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  initialValue?: string;
+  value: string;
+  setValue: (value: string) => void;
   clearable?: boolean;
   fullWidth?: boolean;
-  onChange?: (value: string) => void;
   className?: string;
 };
 
@@ -25,18 +25,12 @@ export const Input = ({
   disabled = false,
   fullWidth = false,
   placeholder,
-  initialValue,
+  value,
+  setValue,
   clearable = false,
-  onChange,
   className,
 }: Props) => {
-  const [value, setValue] = useState(initialValue || "");
   const inputId = useId();
-
-  useEffect(() => {
-    onChange?.(value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
 
   return (
     <div className="space-y-0.5 w-full group">

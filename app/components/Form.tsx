@@ -35,18 +35,52 @@ export function Form({
     <form
       action={generateChangelog}
       onSubmit={handleSubmit}
-      className="col-span-1 lg:col-span-5 xl:col-span-4 space-y-4 sm:space-y-6 lg:sticky lg:top-20 h-fit p-0 sm:p-4 border-none sm:border border-slate-750 bg-transparent sm:bg-slate-900 rounded-md"
+      className="flex flex-col gap-y-4 col-span-1 lg:col-span-5 xl:col-span-4 lg:sticky lg:top-20 h-fit p-0 sm:p-4 border-none sm:border border-slate-750 bg-transparent sm:bg-slate-900 rounded-md"
     >
-      <Input
-        label="Enter a public repo URL"
-        name="repoUrl"
-        placeholder="Enter a public repo URL"
-        initialValue={defaultRepoUrl}
-        onChange={setRepoUrl}
-        type="text"
-        required
-        fullWidth
-      />
+      <div className="flex flex-col gap-y-2">
+        <Input
+          label="Enter a public repo URL"
+          name="repoUrl"
+          value={repoUrl}
+          setValue={setRepoUrl}
+          type="text"
+          required
+          fullWidth
+        />
+        <div className="flex gap-x-2 text-sm">
+          <p>Try:</p>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setRepoUrl("https://github.com/triggerdotdev/trigger.dev");
+            }}
+            className="text-indigo-500 hover:text-indigo-400 transition"
+          >
+            Trigger.dev
+          </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setRepoUrl("https://github.com/calcom/cal.com");
+            }}
+            className="text-indigo-500 hover:text-indigo-400 transition"
+          >
+            Cal.com
+          </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setRepoUrl("https://github.com/supabase/supabase");
+            }}
+            className="text-indigo-500 hover:text-indigo-400 transition"
+          >
+            Supabase
+          </a>
+        </div>
+      </div>
       <div className="flex flex-col gap-y-4 sm:flex-row items-end gap-x-4 lg:flex-col lg:gap-y-4 lg:items-start">
         <div className="flex gap-4 w-full">
           <DatePicker label="From" date={startDate} setDate={setStartDate} />
