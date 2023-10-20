@@ -161,13 +161,14 @@ client.defineJob({
     //4. Generate the changelog using OpenAI
     const promptPrefix = `
     Limit prose. Be extremely concise.
-    You're the head of developer relations at a SaaS. You'll write a short and professional but fun changelog.
-    Below are the commit messages since the last changelog.
-    Title: catchy and foretelling.
-    Intro: fun; themes and highlights.
-    Then, summarize the most important changes in bullet points.
+    Write a short and professional but fun changelog.
+    The structure of the changelog you write should include category headings such as "Features", "Improvements", "Highlights" and "Bug Fixes". This is important.
+    Under each category, summarize the most important changes in bullet points. This is important, don't halucinate this.
+    Make sure each section contains bullet points relevant to the category. This is important. 
     Write in markdown. Ignore numbers, IDs, and timestamps. Keep it light.
     Limit prose.`;
+
+    await io.logger.info(promptPrefix);
 
     const prompt = `${promptPrefix}\n\n${commits
       .map((c) => c.message)
