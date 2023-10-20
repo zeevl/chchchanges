@@ -11,7 +11,7 @@ export interface Database {
     Tables: {
       changelogs: {
         Row: {
-          created_at: string;
+          created_at: string | null;
           end_date: string;
           id: number;
           markdown: string | null;
@@ -19,7 +19,7 @@ export interface Database {
           start_date: string;
         };
         Insert: {
-          created_at?: string;
+          created_at?: string | null;
           end_date: string;
           id?: number;
           markdown?: string | null;
@@ -27,7 +27,7 @@ export interface Database {
           start_date: string;
         };
         Update: {
-          created_at?: string;
+          created_at?: string | null;
           end_date?: string;
           id?: number;
           markdown?: string | null;

@@ -33,9 +33,9 @@ This may require installing or updating the CLI. When linked, you should see a m
 
 ### Setup GitHub
 
-Sign in to [GitHub](https://github.com) and create a new Personal Access Token by going to your profile and clicking `Developer settings`
+Sign in to [GitHub](https://github.com) and create a new Personal Access Token by going to your profile > Settings > Developer settings > Personal access tokens > Fine-grained.
 
-Create a fine-grained token and paste it in your .env file.
+Create a fine-grained token with access to all or public-only repos. Toggle the Commit statuses and Contents permissions, then paste the token in your .env.local file.
 
 ### Setup Supabase
 
@@ -52,7 +52,8 @@ create table
     created_at timestamp with time zone null default now(),
     owner text not null,
     repo text not null,
-    constraint repos_pkey primary key (name, owner),
+    repo_url text not null,
+    constraint repos_pkey primary key (repo, owner),
     constraint repos_id_key unique (id)
   ) tablespace pg_default;
 
@@ -64,7 +65,7 @@ create table
     start_date date not null,
     end_date date not null,
     markdown text null,
-    constraint changelogs_pkey primary key (repo, date),
+    constraint changelogs_pkey primary key (repo, start_date, end_date),
     constraint changelogs_repo_fkey foreign key (repo) references repos (id) on update cascade on delete cascade
   ) tablespace pg_default;
 ```
