@@ -10,7 +10,21 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "AutoChangelog",
-  description: "Generate changelogs from a repo URL.",
+  description:
+    "Automatically generate changelogs from a public GitHub repo URL using OpenAI, Supabase and Trigger.dev.",
+  openGraph: {
+    type: "website",
+    url: "https://autochangelog.dev",
+    title: "AutoChangelog",
+    description:
+      "Automatically generate changelogs from a public GitHub repo URL using OpenAI, Supabase and Trigger.dev.",
+    siteName: "AutoChangelog",
+    images: [
+      {
+        url: "/og-image.jpg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
