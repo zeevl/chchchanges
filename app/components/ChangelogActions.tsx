@@ -26,7 +26,7 @@ export const ChangelogActions = ({ markdown }: Props) => {
   }, [copied]);
 
   return (
-    <div className="w-full flex items-center justify-between text-dimmed border-b border-slate-800 pb-4">
+    <div className="w-full flex items-center justify-between text-dimmed border-b border-slate-800 pb-4 mb-4">
       <div className="flex items-center justify-between w-full gap-4">
         <div className="flex items-center gap-4">
           <Button
