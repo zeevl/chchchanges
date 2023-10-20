@@ -52,7 +52,7 @@ create table
     created_at timestamp with time zone null default now(),
     owner text not null,
     repo text not null,
-    constraint repos_pkey primary key (name, owner),
+    constraint repos_pkey primary key (repo, owner),
     constraint repos_id_key unique (id)
   ) tablespace pg_default;
 
@@ -64,7 +64,7 @@ create table
     start_date date not null,
     end_date date not null,
     markdown text null,
-    constraint changelogs_pkey primary key (repo, date),
+    constraint changelogs_pkey primary key (repo, start_date, end_date),
     constraint changelogs_repo_fkey foreign key (repo) references repos (id) on update cascade on delete cascade
   ) tablespace pg_default;
 ```
